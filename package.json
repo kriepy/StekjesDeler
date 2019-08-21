@@ -1,0 +1,24 @@
+{
+  "name": "StekjesDeler",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/kriepy/StekjesDeler.git",
+  "author": "kriepy <k.rieping@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel ./src/index.html -p 3000 --open"
+  },
+  "dependencies": {
+    "bulma": "^0.7.5",
+    "parcel": "^1.12.3",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "devDependencies": {
+    "@types/node": "^12.7.2",
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "sass": "^1.22.10",
+    "typescript": "^3.5.3"
+  }
+}
