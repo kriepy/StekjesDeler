@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "bulma": "^0.7.5",
+    "google-map-react": "^1.1.4",
     "parcel": "^1.12.3",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
