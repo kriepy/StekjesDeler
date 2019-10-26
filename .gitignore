@@ -9,6 +9,7 @@
 
 # cache
 /.cache
+/.old
 
 # env
 .env
