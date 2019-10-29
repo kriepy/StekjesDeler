@@ -1,7 +1,7 @@
 import * as React from "react";
 import GoogleMapReact from "google-map-react";
 
-const AnyReactComponent = ({ lat, lng, text }) => <div>{text}</div>;
+import Marker from "./Marker";
 
 interface IProps {
   center;
@@ -24,16 +24,30 @@ class Map extends React.Component<IProps, any> {
 
   render() {
     return (
-      <div style={{ height: "100vh", width: "100%" }}>
+      <div style={{ height: "90vh", width: "100%" }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: API_KEY }}
-          defaultCenter={this.props.center}
+          defaultCenter={this.state ? this.state.center : this.props.center}
           defaultZoom={this.props.zoom}
         >
-          <AnyReactComponent lat={59.955413} lng={30.337844} text="My Marker" />
+          <Marker lat={52.3988} lng={4.629} />
         </GoogleMapReact>
       </div>
     );
+  }
+
+  componentDidMount() {
+    navigator.geolocation.getCurrentPosition((position) => {
+      console.log(position.coords)
+      this.setState({
+        center: {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        }
+      });
+      this.forceUpdate();
+
+    });
   }
 }
 

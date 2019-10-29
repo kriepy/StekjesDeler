@@ -11,9 +11,11 @@
   "dependencies": {
     "bulma": "^0.7.5",
     "google-map-react": "^1.1.4",
+    "img": "^3.0.3",
     "parcel": "^1.12.3",
     "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react-dom": "^16.9.0",
+    "src": "^1.1.2"
   },
   "devDependencies": {
     "@types/node": "^12.7.2",
