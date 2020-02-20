@@ -6,22 +6,22 @@
   "author": "kriepy <k.rieping@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "parcel ./src/index.html -p 3000 --open"
+    "start": "parcel ./src/index.html"
   },
   "dependencies": {
-    "bulma": "^0.7.5",
-    "google-map-react": "^1.1.4",
-    "img": "^3.0.3",
-    "parcel": "^1.12.3",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "src": "^1.1.2"
+    "bootstrap": "^4.4.1",
+    "google-maps-react": "^2.0.2",
+    "parcel-bundler": "^1.12.4",
+    "react": "^16.12.0",
+    "react-bootstrap": "^1.0.0-beta.16",
+    "react-dom": "^16.12.0"
   },
   "devDependencies": {
-    "@types/node": "^12.7.2",
-    "@types/react": "^16.9.2",
-    "@types/react-dom": "^16.9.0",
-    "sass": "^1.22.10",
-    "typescript": "^3.5.3"
+    "@types/node": "^13.7.4",
+    "@types/google-maps-react": "^2.0.4",
+    "@types/react": "^16.9.20",
+    "@types/react-dom": "^16.9.5",
+    "sass": "^1.25.0",
+    "typescript": "^3.7.5"
   }
 }
