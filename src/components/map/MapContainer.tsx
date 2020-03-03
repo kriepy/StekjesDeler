@@ -7,20 +7,24 @@ const API_KEY = process.env.REACT_APP_MAPS_API_KEY
   ? process.env.REACT_APP_MAPS_API_KEY
   : "";
 
-interface ContainerProps {
+interface IProps {
   google: GoogleAPI
 }
 
-class MapContainer extends React.Component<ContainerProps> {
+interface IState {
+  activeMarker: google.maps.Marker
+}
+
+class MapContainer extends React.Component<IProps> {
   state = {
     showingInfoWindow: false,
-    activeMarker: google.maps.Marker,
+    activeMarker: new google.maps.Marker,
     selectedPlace: {
       name: String
     }
   };
 
-  onMarkerClick = (props: MarkerProps, marker: google.maps.Marker, e: any) => {
+  onMarkerClick = (props: MarkerProps | undefined, marker: google.maps.Marker | undefined, e: any) => {
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
