@@ -1,30 +1,43 @@
 import * as React from "react";
 import "./MapContainer.scss";
 
-import { Map, GoogleApiWrapper, InfoWindow, Marker, GoogleAPI, MarkerProps } from "google-maps-react";
+import marker from "./marker_green_black.resized15.png";
+
+import {
+  Map,
+  Marker,
+  GoogleApiWrapper,
+  InfoWindow,
+  GoogleAPI,
+  MarkerProps
+} from "google-maps-react";
 
 const API_KEY = process.env.REACT_APP_MAPS_API_KEY
   ? process.env.REACT_APP_MAPS_API_KEY
   : "";
 
 interface IProps {
-  google: GoogleAPI
+  google: GoogleAPI;
 }
 
 interface IState {
-  activeMarker: google.maps.Marker
+  activeMarker: google.maps.Marker;
 }
 
 class MapContainer extends React.Component<IProps> {
   state = {
     showingInfoWindow: false,
-    activeMarker: new google.maps.Marker,
+    activeMarker: new google.maps.Marker(),
     selectedPlace: {
       name: String
     }
   };
 
-  onMarkerClick = (props: MarkerProps | undefined, marker: google.maps.Marker | undefined, e: any) => {
+  onMarkerClick = (
+    props: MarkerProps | undefined,
+    marker: google.maps.Marker | undefined,
+    e: any
+  ) => {
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
@@ -41,7 +54,26 @@ class MapContainer extends React.Component<IProps> {
     }
   };
 
+  getMarkers() {
+    return [
+      <Marker
+        position={{ lat: -1.2884, lng: 36.8233 }}
+        onClick={this.onMarkerClick}
+        name="Bromelia"
+        icon={marker}
+      />,
+      <Marker
+        position={{ lat: -1.2856, lng: 36.8333 }}
+        onClick={this.onMarkerClick}
+        name="Calathea"
+        icon={marker}
+      />
+    ];
+  }
+
   render() {
+    const markers = this.getMarkers();
+
     return (
       <div className="MapContainer">
         <Map
@@ -52,13 +84,15 @@ class MapContainer extends React.Component<IProps> {
             lng: 36.8233
           }}
         >
-          <Marker onClick={this.onMarkerClick} name={"Some tag name"} />
+          {markers}
+
           <InfoWindow
             visible={this.state.showingInfoWindow}
             onClose={this.onClose}
             marker={this.state.activeMarker}
           >
-            <div>
+            <div className="InfoWindow">
+              <img className="InfoImage" src={marker}></img>
               <h4>{this.state.selectedPlace.name}</h4>
             </div>
           </InfoWindow>
