@@ -18,11 +18,11 @@ class MapModal extends React.Component {
       <div>
         <Modal.Dialog size="lg">
           <Modal.Header>
-            <Modal.Title>Modal title</Modal.Title>
+            <Modal.Title>Stekjes Deler</Modal.Title>
           </Modal.Header>
 
           <Modal.Body style={styles}>
-            <GoogleApiWrapper className="GoogleMaps"></GoogleApiWrapper>
+            <GoogleApiWrapper />
           </Modal.Body>
 
         </Modal.Dialog>
